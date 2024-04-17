@@ -1,17 +1,19 @@
 import {Await, useLoaderData} from 'react-router-dom'
-import axios from 'axios'
 import {Suspense} from 'react'
 import PostData from '../components/PostData.jsx'
 import Loader from '../components/Loader.jsx'
+import getData from '../helpers/getData.js'
 
 export const postsLoader = async () => {
-  const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-  console.log(data)
-  return data
+  const posts = getData('https://jsonplaceholder.typicode.com/posts')
+
+  return {
+    data: posts
+  }
 }
 
 const Posts = () => {
-  const data = useLoaderData()
+  const { data } = useLoaderData()
 
   return (
     <div className='flex flex-col gap-2'>

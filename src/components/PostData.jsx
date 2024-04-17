@@ -6,7 +6,7 @@ const PostData = () => {
   return (
     <>
       {data.map((v) => (
-        <Link className='flex py-2 px-4 rounded-md bg-slate-700'
+        <Link className='flex py-2 m-auto px-4 w-1/2 rounded-md bg-slate-700'
               to={`/posts/${v.id}`}
               key={v.id}
         >
