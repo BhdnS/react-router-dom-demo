@@ -1,29 +1,28 @@
-import {Await, Outlet, useLoaderData, useOutlet} from 'react-router-dom'
+import {Outlet, useLoaderData, useOutlet} from 'react-router-dom'
 import AboutNav from '../components/AboutNav.jsx'
 import getData from '../helpers/getData.js'
-import {Suspense} from 'react'
-import Loader from '../components/Loader.jsx'
 import AboutContent from '../components/AboutContent.jsx'
+import LazyData from '../components/LazyData.jsx'
 
 export const loaderAbout = () => {
   const contact = getData('https://jsonplaceholder.typicode.com/users')
 
-  return contact
+  return { data: contact }
 }
 
 const About = () => {
   const view = useOutlet()
-  const contact = useLoaderData()
+  const { data } = useLoaderData()
 
   return (
     <>
       <AboutNav/>
       {!view && <h1 className="text-center text-4xl pt-5">About Page</h1>}
-      {!view && <Suspense fallback={<Loader/>}>
-        <Await resolve={contact}>
+      {!view &&
+        <LazyData data={data}>
           <AboutContent/>
-        </Await>
-      </Suspense>}
+        </LazyData>
+      }
       <div>
         <Outlet/>
       </div>

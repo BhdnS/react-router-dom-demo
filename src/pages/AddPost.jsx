@@ -19,7 +19,7 @@ const AddPost = () => {
     <Form
       action='/add'
       method='POST'
-      className='p-10 bg-slate-800 flex flex-col gap-2'>
+      className='p-10 bg-slate-800 flex flex-col gap-2 w-1/2 mx-auto mt-[10%] rounded-md'>
       <label className='flex flex-col gap-2'>
         Post title:
         <input

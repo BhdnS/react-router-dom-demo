@@ -7,6 +7,7 @@ import AddPost, {addPostAction} from '../pages/AddPost.jsx'
 import About, {loaderAbout} from '../pages/About.jsx'
 import Team, {teamLoader} from '../pages/Team.jsx'
 import Comments, {commentsLoader} from '../pages/Comments.jsx'
+import Home from '../pages/Home.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     element: <Layout/>,
     errorElement: <ErrorPage/>,
     children: [
+      {
+        path: '/',
+        element: <Home/>
+      },
       {
         path: 'posts',
         element: <Posts/>,
