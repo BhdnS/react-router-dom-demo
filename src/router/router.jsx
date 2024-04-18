@@ -8,6 +8,7 @@ import About, {loaderAbout} from '../pages/About.jsx'
 import Team, {teamLoader} from '../pages/Team.jsx'
 import Comments, {commentsLoader} from '../pages/Comments.jsx'
 import Home from '../pages/Home.jsx'
+import Login from '../pages/Login.jsx'
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             loader: commentsLoader,
           }
         ]
+      },
+      {
+        path: 'login',
+        element: <Login/>,
       }
     ]
   }
