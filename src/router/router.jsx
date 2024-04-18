@@ -9,6 +9,7 @@ import Team, {teamLoader} from '../pages/Team.jsx'
 import Comments, {commentsLoader} from '../pages/Comments.jsx'
 import Home from '../pages/Home.jsx'
 import Login from '../pages/Login.jsx'
+import RequireAuth from '../hoc/RequireAuth .jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'add',
-        element: <AddPost/>,
+        element: (
+          <RequireAuth>
+            <AddPost/>
+          </RequireAuth>
+        ),
         action: addPostAction
       },
       {
