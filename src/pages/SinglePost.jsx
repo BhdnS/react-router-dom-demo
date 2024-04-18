@@ -19,7 +19,7 @@ const SinglePost = () => {
       >
         Back
       </Link>
-      <div className='mt-5 flex flex-col gap-2'>
+      <div className='mt-5 bg-blue-950 p-5 rounded-md shadow-2xl px-5 w-1/2 m-auto flex flex-col gap-2'>
         <p>
           <span className='text-green-300'>Post ID: </span>
           {data.id}

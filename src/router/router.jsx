@@ -4,6 +4,9 @@ import ErrorPage from '../pages/ErrorPage.jsx'
 import Posts, {postsLoader} from '../pages/Posts.jsx'
 import SinglePost, {singlePostLoader} from '../pages/SinglePost.jsx'
 import AddPost, {addPostAction} from '../pages/AddPost.jsx'
+import About, {loaderAbout} from '../pages/About.jsx'
+import Team, {teamLoader} from '../pages/Team.jsx'
+import Comments, {commentsLoader} from '../pages/Comments.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,23 @@ const router = createBrowserRouter([
         path: 'add',
         element: <AddPost/>,
         action: addPostAction
+      },
+      {
+        path: 'about',
+        element: <About/>,
+        loader: loaderAbout,
+        children: [
+          {
+            path: 'team',
+            element: <Team/>,
+            loader: teamLoader,
+          },
+          {
+            path: 'comments',
+            element: <Comments/>,
+            loader: commentsLoader,
+          }
+        ]
       }
     ]
   }

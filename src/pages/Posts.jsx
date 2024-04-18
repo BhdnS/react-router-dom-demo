@@ -7,13 +7,11 @@ import getData from '../helpers/getData.js'
 export const postsLoader = async () => {
   const posts = getData('https://jsonplaceholder.typicode.com/posts')
 
-  return {
-    data: posts
-  }
+  return posts
 }
 
 const Posts = () => {
-  const { data } = useLoaderData()
+  const posts = useLoaderData()
 
   return (
     <div className='flex flex-col gap-2'>
@@ -21,7 +19,7 @@ const Posts = () => {
         Posts Page
       </h1>
       <Suspense fallback={<Loader/>}>
-        <Await resolve={data}>
+        <Await resolve={posts}>
           <PostData/>
         </Await>
       </Suspense>
