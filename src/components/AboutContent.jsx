@@ -1,11 +1,11 @@
-import {useAsyncValue} from 'react-router-dom'
+import { useAsyncValue } from 'react-router-dom'
 
 const AboutContent = () => {
   const contact = useAsyncValue()
 
   return (
     <>
-      <div className="flex flex-wrap gap-2.5 justify-center p-5">
+      <div className='flex flex-wrap gap-2.5 justify-center p-5'>
         {contact.map((v) => (
           <div
             className='bg-blue-900 font-bold rounded-md p-4 w-1/3 text-white text-2xl'

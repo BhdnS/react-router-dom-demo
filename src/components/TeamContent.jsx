@@ -1,10 +1,10 @@
-import {useAsyncValue} from 'react-router-dom'
+import { useAsyncValue } from 'react-router-dom'
 
 const TeamContent = () => {
   const team = useAsyncValue()
 
   return (
-    <div className="flex flex-wrap gap-2 justify-center">
+    <div className='flex flex-wrap gap-2 justify-center'>
       {team.map((v) => (
         <div
           className='bg-blue-900 font-bold rounded-md p-4 w-1/3 text-white text-2xl'

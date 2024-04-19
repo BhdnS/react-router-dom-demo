@@ -1,68 +1,68 @@
-import {createBrowserRouter} from 'react-router-dom'
-import Layout from '../pages/Layout.jsx'
-import ErrorPage from '../pages/ErrorPage.jsx'
-import Posts, {postsLoader} from '../pages/Posts.jsx'
-import SinglePost, {singlePostLoader} from '../pages/SinglePost.jsx'
-import AddPost, {addPostAction} from '../pages/AddPost.jsx'
-import About, {loaderAbout} from '../pages/About.jsx'
-import Team, {teamLoader} from '../pages/Team.jsx'
-import Comments, {commentsLoader} from '../pages/Comments.jsx'
-import Home from '../pages/Home.jsx'
-import Login from '../pages/Login.jsx'
+import { createBrowserRouter } from 'react-router-dom'
 import RequireAuth from '../hoc/RequireAuth .jsx'
+import About, { loaderAbout } from '../pages/About.jsx'
+import AddPost, { addPostAction } from '../pages/AddPost.jsx'
+import Comments, { commentsLoader } from '../pages/Comments.jsx'
+import ErrorPage from '../pages/ErrorPage.jsx'
+import Home from '../pages/Home.jsx'
+import Layout from '../pages/Layout.jsx'
+import Login from '../pages/Login.jsx'
+import Posts, { postsLoader } from '../pages/Posts.jsx'
+import SinglePost, { singlePostLoader } from '../pages/SinglePost.jsx'
+import Team, { teamLoader } from '../pages/Team.jsx'
 
 const router = createBrowserRouter([
   {
     path: '',
-    element: <Layout/>,
-    errorElement: <ErrorPage/>,
+    element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <Home/>
+        element: <Home />,
       },
       {
         path: 'posts',
-        element: <Posts/>,
-        loader: postsLoader
+        element: <Posts />,
+        loader: postsLoader,
       },
       {
         path: 'posts/:id',
-        element: <SinglePost/>,
-        loader: singlePostLoader
+        element: <SinglePost />,
+        loader: singlePostLoader,
       },
       {
         path: 'add',
         element: (
           <RequireAuth>
-            <AddPost/>
+            <AddPost />
           </RequireAuth>
         ),
-        action: addPostAction
+        action: addPostAction,
       },
       {
         path: 'about',
-        element: <About/>,
+        element: <About />,
         loader: loaderAbout,
         children: [
           {
             path: 'team',
-            element: <Team/>,
+            element: <Team />,
             loader: teamLoader,
           },
           {
             path: 'comments',
-            element: <Comments/>,
+            element: <Comments />,
             loader: commentsLoader,
-          }
-        ]
+          },
+        ],
       },
       {
         path: 'login',
-        element: <Login/>,
-      }
-    ]
-  }
+        element: <Login />,
+      },
+    ],
+  },
 ])
 
 export default router

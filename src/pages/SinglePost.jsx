@@ -1,8 +1,10 @@
-import {Link, useLoaderData} from 'react-router-dom'
 import axios from 'axios'
+import { Link, useLoaderData } from 'react-router-dom'
 
-export const singlePostLoader = async ({params}) => {
-  const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
+export const singlePostLoader = async ({ params }) => {
+  const { data } = await axios.get(
+    `https://jsonplaceholder.typicode.com/posts/${params.id}`
+  )
 
   return data
 }
@@ -12,7 +14,9 @@ const SinglePost = () => {
 
   return (
     <>
-      <h1 className='text-white text-center text-2xl my-10'>Single Post Page</h1>
+      <h1 className='text-white text-center text-2xl my-10'>
+        Single Post Page
+      </h1>
       <Link
         className='bg-sky-500 rounded-md px-6 py-2 hover:bg-sky-600 mx-auto flex justify-center max-w-fit'
         to='/posts'

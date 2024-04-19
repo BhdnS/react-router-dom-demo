@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import useAuth from '../hooks/useAuth.jsx'
 
 const BtnLogout = () => {
@@ -15,7 +15,9 @@ const BtnLogout = () => {
     <button
       className='transition delay-300 ease-in-out hover:text-blue-200'
       onClick={handleClickLogout}
-    >Logout</button>
+    >
+      Logout
+    </button>
   )
 }
 

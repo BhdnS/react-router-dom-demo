@@ -1,8 +1,8 @@
-import {Outlet, useLoaderData, useOutlet} from 'react-router-dom'
-import AboutNav from '../components/AboutNav.jsx'
-import getData from '../helpers/getData.js'
+import { Outlet, useLoaderData, useOutlet } from 'react-router-dom'
 import AboutContent from '../components/AboutContent.jsx'
+import AboutNav from '../components/AboutNav.jsx'
 import LazyData from '../components/LazyData.jsx'
+import getData from '../helpers/getData.js'
 
 export const loaderAbout = () => {
   const contact = getData('https://jsonplaceholder.typicode.com/users')
@@ -16,15 +16,15 @@ const About = () => {
 
   return (
     <>
-      <AboutNav/>
-      {!view && <h1 className="text-center text-4xl pt-5">About Page</h1>}
-      {!view &&
+      <AboutNav />
+      {!view && <h1 className='text-center text-4xl pt-5'>About Page</h1>}
+      {!view && (
         <LazyData data={data}>
-          <AboutContent/>
+          <AboutContent />
         </LazyData>
-      }
+      )}
       <div>
-        <Outlet/>
+        <Outlet />
       </div>
     </>
   )
