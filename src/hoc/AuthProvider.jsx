@@ -2,7 +2,10 @@ import { useState } from 'react'
 import AuthContext from '../context/AuthContext.jsx'
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+  })
 
   const signIn = (newUser, cb) => {
     setUser(newUser)
@@ -10,7 +13,10 @@ const AuthProvider = ({ children }) => {
   }
 
   const signOut = (cb) => {
-    setUser(null)
+    setUser({
+      firstName: '',
+      lastName: '',
+    })
     cb()
   }
 

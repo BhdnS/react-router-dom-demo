@@ -4,6 +4,7 @@ import BtnLogout from './BtnLogout.jsx'
 
 const Header = () => {
   const { user } = useAuth()
+  const isAuth = user.firstName !== '' && user.lastName !== ''
 
   return (
     <nav className='bg-slate-950 text-xl py-4 flex justify-center gap-10'>
@@ -31,8 +32,8 @@ const Header = () => {
       >
         Add Post
       </NavLink>
-      {user && <BtnLogout />}
-      {!user && (
+      {isAuth && <BtnLogout />}
+      {!isAuth && (
         <NavLink
           className='transition delay-300 ease-in-out hover:text-blue-200'
           to='login'
